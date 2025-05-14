@@ -1,0 +1,13 @@
+{
+  "name": "whatsapp-bot",
+  "version": "1.0.0",
+  "description": "Bot de WhatsApp para respuestas automáticas",
+  "main": "whatsapp-bot.js",
+  "scripts": {
+    "start": "node whatsapp-bot.js"
+  },
+  "dependencies": {
+    "qrcode-terminal": "^0.12.0",
+    "whatsapp-web.js": "^1.28.0"
+  }
+}
