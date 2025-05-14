@@ -1,301 +1,41 @@
+<!-- IMPORTANTE: Edita solo este archivo (index.html). No uses 'índice.html', ya que los servidores web solo reconocen 'index.html' como página principal. -->
+<!-- Cambio forzado para activar despliegue automático en Vercel -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Mi Lindo Gatito - Tu fuente confiable de información sobre el cuidado de gatos en Costa Rica">
     <title>Mi Lindo Gatito - Cuidado Profesional para tu Gato</title>
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: #111;
+        }
+        .hero-background img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            display: block;
+        }
+        .hero-content {
+            position: absolute;
+            top: 30%;
+            left: 10%;
+            color: white;
+            z-index: 2;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav class="main-nav">
-            <div class="logo">
-                <i class="fas fa-cat"></i>
-                <a href="#inicio">Mi Lindo Gatito</a>
-            </div>
-            <div class="nav-links">
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="#testimonios">Testimonios</a></li>
-                    <li><a href="#nosotros">Nosotros</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-            <button class="mobile-menu-btn">
-                <i class="fas fa-bars"></i>
-            </button>
-        </nav>
-    </header>
-
-    <main>
-        <!-- Hero Section -->
-        <section id="inicio" class="hero">
-            <div class="hero-background">
-                <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gato lindo y centrado">
-            </div>
-            <div class="hero-content">
-                <h1>Cuidado Profesional para tu Gato</h1>
-                <p>Expertos en el cuidado y bienestar de tu mascota en San José, Costa Rica. Ofrecemos servicios personalizados y atención de calidad para tu felino.</p>
-                <div class="hero-buttons">
-                    <a href="#contacto" class="btn primary">Agenda una Cita</a>
-                    <a href="tel:+506XXXXXXXX" class="btn secondary">Llámanos</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Problem/Solution Section -->
-        <section id="problema" class="problem-solution">
-            <div class="container">
-                <h2>¿Por qué elegirnos?</h2>
-                <div class="solution-grid">
-                    <div class="solution-card solution-bg1">
-                        <i class="fas fa-heart"></i>
-                        <h3>Amor y Cuidado</h3>
-                        <p>Tratamos a tu gato como si fuera nuestro, con todo el amor y atención que merece.</p>
-                    </div>
-                    <div class="solution-card solution-bg2">
-                        <i class="fas fa-certificate"></i>
-                        <h3>Experiencia</h3>
-                        <p>Más de 10 años cuidando gatos en San José, con resultados comprobados.</p>
-                    </div>
-                    <div class="solution-card solution-bg3">
-                        <i class="fas fa-home"></i>
-                        <h3>Ambiente Seguro</h3>
-                        <p>Instalaciones diseñadas especialmente para el confort de tu mascota.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Services Section -->
-        <section id="servicios" class="services">
-            <div class="container">
-                <h2>Nuestros Servicios</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" alt="Cuidado Básico">
-                        <h3>Cuidado Básico</h3>
-                        <p>Alimentación, limpieza y atención diaria para tu gato.</p>
-                        <a href="#contacto" class="learn-more">Más información</a>
-                    </div>
-                    <div class="service-card">
-                        <img src="https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg" alt="Cuidado Médico">
-                        <h3>Cuidado Médico</h3>
-                        <p>Chequeos regulares y atención veterinaria especializada.</p>
-                        <a href="#contacto" class="learn-more">Más información</a>
-                    </div>
-                    <div class="service-card">
-                        <img src="https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg" alt="Entrenamiento">
-                        <h3>Entrenamiento</h3>
-                        <p>Programas de comportamiento y socialización.</p>
-                        <a href="#contacto" class="learn-more">Más información</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Benefits Section -->
-        <section id="beneficios" class="benefits">
-            <div class="container">
-                <h2>¿Por qué somos diferentes?</h2>
-                <div class="benefits-grid">
-                    <div class="benefit-card benefit-bg1">
-                        <i class="fas fa-clock"></i>
-                        <h3>Atención 24/7</h3>
-                        <p>Disponibles para emergencias en cualquier momento.</p>
-                    </div>
-                    <div class="benefit-card benefit-bg2">
-                        <i class="fas fa-user-md"></i>
-                        <h3>Personal Calificado</h3>
-                        <p>Equipo de veterinarios y cuidadores certificados.</p>
-                    </div>
-                    <div class="benefit-card benefit-bg3">
-                        <i class="fas fa-heart"></i>
-                        <h3>Cuidado Personalizado</h3>
-                        <p>Atención individualizada para cada mascota.</p>
-                    </div>
-                    <div class="benefit-card benefit-bg4">
-                        <i class="fas fa-home"></i>
-                        <h3>Instalaciones Modernas</h3>
-                        <p>Espacios diseñados para el confort de tu gato.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonials Section -->
-        <section id="testimonios" class="testimonials">
-            <div class="container">
-                <h2>Lo que dicen nuestros clientes</h2>
-                <div class="testimonials-grid">
-                    <div class="testimonial-card">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p>"Excelente servicio y atención. Mi gato está feliz y saludable gracias a ellos."</p>
-                        <div class="client-info">
-                            <img src="https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg" alt="Cliente">
-                            <div>
-                                <h4>María Rodríguez</h4>
-                                <span>Cliente desde 2022</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card">
-                        <div class="rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                        </div>
-                        <p>"Profesionales y atentos. Siempre disponibles cuando los necesitamos."</p>
-                        <div class="client-info">
-                            <img src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg" alt="Cliente">
-                            <div>
-                                <h4>Juan Pérez</h4>
-                                <span>Cliente desde 2021</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="nosotros" class="about">
-            <div class="container">
-                <div class="about-content">
-                    <div class="about-text">
-                        <h2>Nuestra Historia</h2>
-                        <p>En Mi Lindo Gatito, nos apasiona el cuidado de los gatos. Con más de 10 años de experiencia en San José, nos hemos convertido en referentes en el cuidado felino en Costa Rica.</p>
-                        <p>Nuestro equipo de profesionales certificados está comprometido con el bienestar de tu mascota, ofreciendo servicios de la más alta calidad en un ambiente seguro y acogedor.</p>
-                    </div>
-                    <div class="about-image">
-                        <img src="https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg" alt="Nuestro equipo">
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- CTA Section -->
-        <section class="cta">
-            <div class="container">
-                <h2>¡Tu gato merece lo mejor!</h2>
-                <p>Únete a más de 500 familias felices que confían en nosotros para el cuidado de sus gatos en San José. Agenda tu primera consulta gratuita y descubre por qué somos los expertos en cuidado felino.</p>
-                <div class="cta-buttons">
-                    <a href="#contacto" class="btn primary">Agenda tu Consulta Gratuita</a>
-                    <a href="tel:+506XXXXXXXX" class="btn secondary">Llámanos Ahora</a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contacto" class="contact">
-            <div class="container">
-                <h2>Contáctanos</h2>
-                <div class="contact-grid">
-                    <div class="contact-form">
-                        <form id="contactForm">
-                            <div class="form-group">
-                                <label for="name">Nombre</label>
-                                <input type="text" id="name" name="name" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="message">Mensaje</label>
-                                <textarea id="message" name="message" required></textarea>
-                            </div>
-                            <button type="submit" class="btn primary">Enviar Mensaje</button>
-                        </form>
-                    </div>
-                    <div class="contact-info">
-                        <div class="info-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <div>
-                                <h3>Dirección</h3>
-                                <p>San José, Costa Rica</p>
-                                <p>Pérez Zeledón, Baidambu</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-phone"></i>
-                            <div>
-                                <h3>Teléfono</h3>
-                                <p>(506) XXXX-XXXX</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-envelope"></i>
-                            <div>
-                                <h3>Email</h3>
-                                <p>info@milindogatito.com</p>
-                            </div>
-                        </div>
-                        <div class="info-item">
-                            <i class="fas fa-clock"></i>
-                            <div>
-                                <h3>Horario</h3>
-                                <p>Lunes - Viernes: 8:00 AM - 6:00 PM</p>
-                                <p>Sábados: 9:00 AM - 2:00 PM</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-section">
-                <h3>Mi Lindo Gatito</h3>
-                <p>Tu fuente confiable de información sobre el cuidado de gatos</p>
-                <div class="social-links">
-                    <a href="#"><i class="fab fa-facebook"></i></a>
-                    <a href="#"><i class="fab fa-instagram"></i></a>
-                    <a href="#"><i class="fab fa-twitter"></i></a>
-                </div>
-            </div>
-            <div class="footer-section">
-                <h3>Enlaces Rápidos</h3>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#servicios">Servicios</a></li>
-                    <li><a href="#beneficios">Beneficios</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </div>
-            <div class="footer-section">
-                <h3>Legal</h3>
-                <ul>
-                    <li><a href="#">Términos y Condiciones</a></li>
-                    <li><a href="#">Política de Privacidad</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2024 Mi Lindo Gatito. Todos los derechos reservados.</p>
-        </div>
-    </footer>
-
-    <!-- Botón de WhatsApp -->
-    <a href="https://api.whatsapp.com/send/?phone=50661278681&text=%C2%A1Hola%21+%F0%9F%91%8B+Me+gustar%C3%ADa+obtener+informaci%C3%B3n+sobre+los+servicios+de+Mi+Lindo+Gatito.+Espec%C3%ADficamente+me+interesa+saber+sobre%3A&type=phone_number&app_absent=0" class="whatsapp-btn" target="_blank" title="¡Chatea con nosotros!">
-        <i class="fab fa-whatsapp"></i>
-    </a>
-
-    <script src="script.js"></script>
+    <div class="hero-background">
+        <img src="https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gato grande">
+    </div>
+    <div class="hero-content">
+        <h1>Cuidado Profesional para tu Gato</h1>
+        <p>Expertos en el cuidado y bienestar de tu mascota en San José, Costa Rica. Ofrecemos servicios personalizados y atención de calidad para tu felino.</p>
+        <a href="#contacto" style="background:#ff6f61;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;">AGENDA UNA CITA</a>
+        <a href="tel:+506XXXXXXXX" style="border:2px solid #fff;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;margin-left:10px;">LLÁMANOS</a>
+    </div>
 </body>
 </html> 
