@@ -163,9 +163,10 @@ header {
 .hero-background img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    filter: brightness(0.95) contrast(1.02);
-    transform: scale(1.05);
+    object-fit: contain;
+    object-position: center;
+    filter: brightness(0.98) contrast(1.05);
+    background: #222;
     transition: transform 0.5s ease;
 }
 
