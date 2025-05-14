@@ -283,19 +283,19 @@ header {
 }
 
 .solution-bg1 {
-    background-image: url('https://images.pexels.com/photos/45201/kitty-cat-kitten-pet-45201.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .solution-bg2 {
-    background-image: url('https://images.pexels.com/photos/1056251/pexels-photo-1056251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .solution-bg3 {
-    background-image: url('https://images.pexels.com/photos/127028/pexels-photo-127028.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-image: url('https://images.unsplash.com/photo-1518791841217-8f162f1e1131?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -308,16 +308,16 @@ header {
     text-shadow: 1px 1px 4px #000;
     background: var(--background-dark);
     border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    overflow: hidden;
 }
-.solution-card > * {
-    position: relative;
-    z-index: 2;
-}
+
 .solution-card::before {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0.3);
     z-index: 1;
     border-radius: 10px;
 }
@@ -406,25 +406,25 @@ header {
 }
 
 .benefit-bg1 {
-    background-image: url('https://images.pexels.com/photos/1643457/pexels-photo-1643457.jpeg');
+    background-image: url('https://images.unsplash.com/photo-1543852786-1cf6624b9987?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .benefit-bg2 {
-    background-image: url('https://images.pexels.com/photos/3845810/pexels-photo-3845810.jpeg');
+    background-image: url('https://images.unsplash.com/photo-1573865526739-10659fec78a5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .benefit-bg3 {
-    background-image: url('https://images.pexels.com/photos/1643456/pexels-photo-1643456.jpeg');
+    background-image: url('https://images.unsplash.com/photo-1548767797-d8c844163c4c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .benefit-bg4 {
-    background-image: url('https://images.pexels.com/photos/1643458/pexels-photo-1643458.jpeg');
+    background-image: url('https://images.unsplash.com/photo-1533738363-b7f9aef128ce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -436,6 +436,9 @@ header {
     text-shadow: 1px 1px 4px #000;
     background: var(--background-dark);
     border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 10px;
+    padding: 2rem;
+    overflow: hidden;
 }
 .benefit-card > * {
     position: relative;
@@ -445,7 +448,7 @@ header {
     content: '';
     position: absolute;
     inset: 0;
-    background: rgba(0,0,0,0.45);
+    background: rgba(0,0,0,0.3);
     z-index: 1;
     border-radius: 10px;
 }
