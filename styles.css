@@ -284,19 +284,19 @@ header {
 }
 
 .solution-bg1 {
-    background-image: url('https://images.unsplash.com/photo-1518715308788-3005759c61d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+    background-image: url('https://images.unsplash.com/photo-1518715308788-3005759c61d3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); /* Gato naranja */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .solution-bg2 {
-    background-image: url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+    background-image: url('https://images.unsplash.com/photo-1518717758536-85ae29035b6d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); /* Gato blanco */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 .solution-bg3 {
-    background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80');
+    background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'); /* Gato gris */
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
