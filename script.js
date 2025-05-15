@@ -27,26 +27,242 @@ function loadGallery() {
     });
 }
 
-// Manejo del formulario de contacto
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData);
-    
-    // Aquí normalmente enviarías los datos a un servidor
-    alert('¡Gracias por tu mensaje! Te contactaremos pronto.');
-    this.reset();
+// Esperar a que el DOM esté completamente cargado
+document.addEventListener('DOMContentLoaded', function() {
+    // Navegación suave
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+
+    // Manejo del formulario de contacto
+    const contactForm = document.getElementById('contactForm');
+    if (contactForm) {
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Obtener los valores del formulario
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // Validación básica
+            let isValid = true;
+            const inputs = this.querySelectorAll('input, textarea');
+            inputs.forEach(input => {
+                if (input.hasAttribute('required') && !input.value.trim()) {
+                    isValid = false;
+                    input.classList.add('error');
+                } else {
+                    input.classList.remove('error');
+                }
+            });
+
+            if (!isValid) {
+                alert('Por favor, completa todos los campos requeridos.');
+                return;
+            }
+            
+            // Simular envío del formulario
+            const submitButton = this.querySelector('button[type="submit"]');
+            const originalText = submitButton.textContent;
+            submitButton.disabled = true;
+            submitButton.textContent = 'Enviando...';
+            
+            // Simular delay de envío
+            setTimeout(() => {
+                console.log('Datos del formulario:', data);
+                alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+                this.reset();
+                submitButton.disabled = false;
+                submitButton.textContent = originalText;
+            }, 1500);
+        });
+    }
+
+    // Animación de aparición al hacer scroll
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+
+    // Observar elementos que queremos animar
+    document.querySelectorAll('.servicio-card, .contacto-info, .contacto-form').forEach(el => {
+        el.classList.add('fade-in');
+        observer.observe(el);
+    });
+
+    // Navbar responsive
+    const navbar = document.querySelector('.navbar');
+    let lastScroll = 0;
+    let isScrolling;
+
+    window.addEventListener('scroll', () => {
+        // Limpiar el timeout anterior
+        clearTimeout(isScrolling);
+
+        const currentScroll = window.pageYOffset;
+        
+        // Mostrar/ocultar navbar
+        if (currentScroll <= 0) {
+            navbar.classList.remove('scroll-up');
+            navbar.classList.remove('scroll-down');
+        } else if (currentScroll > lastScroll && !navbar.classList.contains('scroll-down')) {
+            navbar.classList.remove('scroll-up');
+            navbar.classList.add('scroll-down');
+        } else if (currentScroll < lastScroll && navbar.classList.contains('scroll-down')) {
+            navbar.classList.remove('scroll-down');
+            navbar.classList.add('scroll-up');
+        }
+        
+        lastScroll = currentScroll;
+
+        // Agregar clase 'scrolled' cuando se hace scroll
+        if (currentScroll > 50) {
+            navbar.classList.add('scrolled');
+        } else {
+            navbar.classList.remove('scrolled');
+        }
+
+        // Detener la animación después de que el scroll se detenga
+        isScrolling = setTimeout(() => {
+            navbar.classList.remove('scrolling');
+        }, 100);
+    });
+
+    // Menú móvil
+    const menuBtn = document.createElement('button');
+    menuBtn.className = 'menu-btn';
+    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+    navbar.appendChild(menuBtn);
+
+    menuBtn.addEventListener('click', () => {
+        const nav = navbar.querySelector('nav');
+        nav.classList.toggle('active');
+        menuBtn.classList.toggle('active');
+    });
+
+    // Cerrar menú al hacer click en un enlace
+    document.querySelectorAll('.navbar nav a').forEach(link => {
+        link.addEventListener('click', () => {
+            const nav = navbar.querySelector('nav');
+            nav.classList.remove('active');
+            menuBtn.classList.remove('active');
+        });
+    });
+
+    // Agregar estilos CSS para el menú móvil
+    const mobileStyles = document.createElement('style');
+    mobileStyles.textContent = `
+        .menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--lila-suave);
+            font-size: 1.5rem;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        @media (max-width: 768px) {
+            .menu-btn {
+                display: block;
+            }
+
+            .navbar nav {
+                position: fixed;
+                top: 64px;
+                left: 0;
+                right: 0;
+                background: var(--morado-oscuro);
+                padding: 20px;
+                flex-direction: column;
+                align-items: center;
+                transform: translateY(-100%);
+                opacity: 0;
+                transition: all 0.3s ease;
+                display: flex;
+            }
+
+            .navbar nav.active {
+                transform: translateY(0);
+                opacity: 1;
+            }
+
+            .navbar nav a {
+                margin: 10px 0;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        .navbar.scrolled {
+            background: rgba(76,29,149,0.98);
+            box-shadow: 0 2px 20px rgba(76,29,149,0.2);
+        }
+
+        .navbar.scrolling {
+            transition: none;
+        }
+
+        .error {
+            border-color: #ff4444 !important;
+            animation: shake 0.5s ease-in-out;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            75% { transform: translateX(5px); }
+        }
+    `;
+    document.head.appendChild(mobileStyles);
 });
 
-// Navegación suave
-document.querySelectorAll('nav a').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const section = document.querySelector(this.getAttribute('href'));
-        section.scrollIntoView({ behavior: 'smooth' });
-    });
-});
+// Agregar estilos CSS para las animaciones
+const style = document.createElement('style');
+style.textContent = `
+    .fade-in {
+        opacity: 0;
+        transform: translateY(20px);
+        transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    
+    .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    
+    .navbar {
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .navbar.scroll-down {
+        transform: translateY(-100%);
+    }
+    
+    .navbar.scroll-up {
+        transform: translateY(0);
+    }
+`;
+document.head.appendChild(style);
 
 // Cargar la galería cuando el DOM esté listo
 document.addEventListener('DOMContentLoaded', loadGallery);
@@ -247,4 +463,95 @@ function initChatWidget() {
     setTimeout(() => {
         chatWidget.classList.add('active');
     }, 5000);
-} 
+}
+
+// Navegación suave para anclas internas
+window.addEventListener('DOMContentLoaded', function() {
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    });
+  });
+
+  // Animación de aparición al hacer scroll
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        obs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.servicio-card, .contacto-info, .contacto-form, .galeria-gatos, .footer-section').forEach(el => {
+    el.classList.add('fade-in');
+    observer.observe(el);
+  });
+
+  // Validación y feedback del formulario de contacto
+  const contactForm = document.getElementById('contactForm');
+  if (contactForm) {
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+      this.querySelectorAll('input[required], textarea[required]').forEach(input => {
+        if (!input.value.trim()) {
+          input.classList.add('error');
+          valid = false;
+        } else {
+          input.classList.remove('error');
+        }
+      });
+      if (!valid) {
+        alert('Por favor, completa todos los campos obligatorios.');
+        return;
+      }
+      const btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.textContent = 'Enviando...';
+      setTimeout(() => {
+        alert('¡Gracias por tu mensaje! Nos pondremos en contacto contigo pronto.');
+        this.reset();
+        btn.disabled = false;
+        btn.textContent = 'Enviar Mensaje';
+      }, 1200);
+    });
+  }
+
+  // Lightbox para galería de gatos
+  const galeria = document.querySelector('.galeria-grid');
+  if (galeria) {
+    galeria.addEventListener('click', function(e) {
+      if (e.target.tagName === 'IMG') {
+        let overlay = document.createElement('div');
+        overlay.style.position = 'fixed';
+        overlay.style.top = 0;
+        overlay.style.left = 0;
+        overlay.style.width = '100vw';
+        overlay.style.height = '100vh';
+        overlay.style.background = 'rgba(0,0,0,0.85)';
+        overlay.style.display = 'flex';
+        overlay.style.alignItems = 'center';
+        overlay.style.justifyContent = 'center';
+        overlay.style.zIndex = 9999;
+        overlay.innerHTML = `<img src="${e.target.src}" style="max-width:90vw; max-height:90vh; border-radius:18px; box-shadow:0 8px 32px #000;">`;
+        overlay.addEventListener('click', () => document.body.removeChild(overlay));
+        document.body.appendChild(overlay);
+      }
+    });
+  }
+});
+
+// Estilos para fade-in y error
+const style = document.createElement('style');
+style.textContent = `
+.fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s, transform 0.6s; }
+.fade-in.visible { opacity: 1; transform: translateY(0); }
+input.error, textarea.error { border-color: #ff4444 !important; animation: shake 0.4s; }
+@keyframes shake { 0%,100%{transform:translateX(0);} 25%{transform:translateX(-5px);} 75%{transform:translateX(5px);} }
+`;
+document.head.appendChild(style); 

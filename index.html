@@ -5,37 +5,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mi Lindo Gatito - Cuidado Profesional para tu Gato</title>
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            background: #111;
-        }
-        .hero-background img {
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
-            display: block;
-        }
-        .hero-content {
-            position: absolute;
-            top: 30%;
-            left: 10%;
-            color: white;
-            z-index: 2;
-        }
-    </style>
+    <title>Mi Lindo Gatito</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <div class="hero-background">
-        <img src="https://images.unsplash.com/photo-1518715308788-3005759c61d4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80" alt="Gato grande y bonito">
+    <div class="navbar">
+        <div class="logo"><i class="fas fa-cat"></i> Mi Lindo Gatito</div>
+        <nav>
+            <a href="#inicio">Inicio</a>
+            <a href="#servicios">Servicios</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
     </div>
-    <div class="hero-content">
-        <h1>Cuidado Profesional para tu Gato</h1>
-        <p>Expertos en el cuidado y bienestar de tu mascota en San José, Costa Rica. Ofrecemos servicios personalizados y atención de calidad para tu felino.</p>
-        <a href="#contacto" style="background:#ff6f61;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;">AGENDA UNA CITA</a>
-        <a href="tel:+506XXXXXXXX" style="border:2px solid #fff;color:white;padding:10px 20px;border-radius:5px;text-decoration:none;margin-left:10px;">LLÁMANOS</a>
-    </div>
+
+    <section class="hero" style="background-image: url('imagenes/gato1.jpg');">
+        <div class="overlay"></div>
+        <div class="hero-content">
+            <h1>Cuidado Profesional para tu Gato</h1>
+            <p>Expertos en el bienestar de tu felino en San José, Costa Rica.</p>
+            <div class="hero-buttons">
+                <a href="#contacto" class="btn btn-primary">Agenda una cita</a>
+                <a href="tel:+506XXXXXXX" class="btn btn-secondary">Llámanos</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="servicios">
+        <h2>Nuestros Servicios</h2>
+        <div class="servicios-grid">
+            <div class="servicio-card">
+                <img src="imagenes/gato2.jpg" alt="Veterinaria">
+                <h3>Veterinaria</h3>
+                <p>Atención médica especializada para tu gato.</p>
+            </div>
+            <div class="servicio-card">
+                <img src="imagenes/gato3.jpg" alt="Peluquería">
+                <h3>Peluquería</h3>
+                <p>Baños, cortes y cepillado profesional.</p>
+            </div>
+            <div class="servicio-card">
+                <img src="imagenes/gato4.jpg" alt="Guardería">
+                <h3>Guardería</h3>
+                <p>Cuidado y entretenimiento mientras no estás en casa.</p>
+            </div>
+            <div class="servicio-card">
+                <img src="imagenes/gato5.jpg" alt="Tienda">
+                <h3>Tienda</h3>
+                <p>Alimentos, juguetes y accesorios para gatos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contacto">
+        <h2>Contáctanos</h2>
+        <div class="contacto-container">
+            <div class="contacto-info">
+                <h3>Información de Contacto</h3>
+                <p><i class="fas fa-map-marker-alt"></i> San José, Costa Rica</p>
+                <p><i class="fas fa-phone"></i> +506 XXXX-XXXX</p>
+                <p><i class="fas fa-envelope"></i> info@milindogatito.com</p>
+                <div class="redes-sociales">
+                    <a href="#" class="social-icon"><i class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <form class="contacto-form" id="contactForm">
+                <input type="text" placeholder="Nombre" required>
+                <input type="email" placeholder="Email" required>
+                <input type="tel" placeholder="Teléfono">
+                <textarea placeholder="Mensaje" required></textarea>
+                <button type="submit" class="btn btn-primary">Enviar Mensaje</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="galeria-gatos">
+        <h2>Galería de Gatos</h2>
+        <div class="galeria-grid">
+            <img src="imagenes/gato1.jpg" alt="Gato 1">
+            <img src="imagenes/gato2.jpg" alt="Gato 2">
+            <img src="imagenes/gato3.jpg" alt="Gato 3">
+            <img src="imagenes/gato4.jpg" alt="Gato 4">
+            <img src="imagenes/gato5.jpg" alt="Gato 5">
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Sobre Nosotros</h4>
+                <p>Amamos a los gatos y cuidamos de ellos como familia.</p>
+                <img src="imagenes/gato4.jpg" alt="Gato Footer" style="width:80px; border-radius:50%; margin-top:10px;">
+            </div>
+            <div class="footer-section">
+                <h4>Horario</h4>
+                <p>Lunes a Viernes: 8:00 AM - 6:00 PM</p>
+                <p>Sábados: 9:00 AM - 2:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 Mi Lindo Gatito. Todos los derechos reservados.
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html> 
